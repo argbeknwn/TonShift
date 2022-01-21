@@ -21,4 +21,4 @@ sketch
 *.local
 *.*-workspace
 
-i18n-DEV
+locales

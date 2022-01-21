@@ -7,6 +7,8 @@ import { PoolRoute } from '../routes/pool';
 import { PoolsRoute } from '../routes/pools';
 import { SwapRoute } from '../routes/swap';
 
+import '../i18n/i18n';
+
 const App = memo(() => {
   return (
     <ChakraProvider theme={theme}>

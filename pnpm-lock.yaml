@@ -16,8 +16,10 @@ specifiers:
   commitizen: ^4.2.4
   cz-conventional-changelog: 3.3.0
   framer-motion: ^5
+  i18next: ^21.6.6
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-i18next: ^11.15.3
   react-router-dom: ^6
   typescript: ^4.4.4
   vite: ^2.7.2
@@ -37,8 +39,10 @@ dependencies:
   '@types/react': 16.14.21
   '@types/react-dom': 16.9.14
   framer-motion: 5.6.0_react-dom@17.0.2+react@17.0.2
+  i18next: 21.6.6
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-i18next: 11.15.3_bc514be083f1f06b28df24d5713fc600
   react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
   web-vitals: 0.2.4
 
@@ -3676,6 +3680,22 @@ packages:
       parse-passwd: 1.0.0
     dev: true
 
+  /html-escaper/2.0.2:
+    resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
+    dev: false
+
+  /html-parse-stringify/3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
+  /i18next/21.6.6:
+    resolution: {integrity: sha512-K1Pw8K+nHVco56PO6UrqNq4K/ZVbb2eqBQwPqmzYDm4tGQYXBjdz8jrnvuNvV5STaE8oGpWKQMxHOvh2zhVE7Q==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+    dev: false
+
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -4271,6 +4291,27 @@ packages:
       use-sidecar: 1.0.5_react@17.0.2
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-i18next/11.15.3_bc514be083f1f06b28df24d5713fc600:
+    resolution: {integrity: sha512-RSUEM4So3Tu2JHV0JsZ5Yje+4nz66YViMfPZoywxOy0xyn3L7tE2CHvJ7Y9LUsrTU7vGmZ5bwb8PpjnkatdIxg==}
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.16.7
+      html-escaper: 2.0.2
+      html-parse-stringify: 3.0.1
+      i18next: 21.6.6
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /react-is/16.13.1:
@@ -4972,6 +5013,11 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /void-elements/3.1.0:
+    resolution: {integrity: sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /warning/4.0.3:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}

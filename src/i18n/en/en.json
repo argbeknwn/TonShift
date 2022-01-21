@@ -1,0 +1,21 @@
+{
+  "app": "tonshift",
+  "connect": "connect",
+  "wallet": "wallet",
+  "add": "add",
+  "remove": "remove",
+  "swap": "swap",
+  "pools": "pools",
+  "pool": "pool",
+  "select": "select",
+  "transactions": "transactions",
+  "transaction": "transaction",
+  "volumes": "volumes",
+  "volume": "volume",
+  "fees": "fees",
+  "all": "all",
+  "nomatch": "no match",
+  "error": "error",
+  "switch language": "switch language",
+  "options": "options"
+}

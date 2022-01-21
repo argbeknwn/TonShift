@@ -1,0 +1,22 @@
+{
+  "app": "tonshift",
+  "connect": "подключить",
+  "wallet": "кошелёк",
+  "add": "добавь",
+  "remove": "убавь",
+  "swap": "обмен",
+  "pools": "пулы",
+  "pool": "пул",
+  "select": "выбрать",
+  "transactions": "сделки",
+  "transaction": "сделка",
+  "volumes": "объёмы",
+  "volume": "объём",
+  "fees": "взнос",
+  "fee": "взносы",
+  "all": "все",
+  "nomatch": "не совпадает",
+  "error": "ошибка",
+  "switch language": "изменить язык",
+  "options": "параметры"
+}
