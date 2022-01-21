@@ -13,6 +13,7 @@
     "commit-all": "git add . && cz"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.7.4",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -26,7 +27,7 @@
     "framer-motion": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^3.11.0",
+    "react-router-dom": "^6",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
