@@ -1,16 +1,16 @@
 import { Box, Grid } from '@chakra-ui/react';
 import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Nav } from './nav';
+import { Nav } from '../components/nav/nav';
 
 const Layout = memo(() => {
   return (
-    <Box h="full" w="full" textAlign="center" fontSize="xl">
+    <Grid templateRows={'1fr 9fr'} h="full" w="full" minH="100vh" p={2}>
       <Nav />
       <Grid>
         <Outlet />
       </Grid>
-    </Box>
+    </Grid>
   );
 });
 
