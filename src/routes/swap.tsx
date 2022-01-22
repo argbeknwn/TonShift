@@ -2,6 +2,7 @@ import { GridItem, Text, useColorModeValue } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Content } from '../components/content/content';
+import { Swapper } from '../components/swapper/swapper';
 
 const SwapRoute = memo(() => {
   const { t } = useTranslation();
@@ -11,9 +12,10 @@ const SwapRoute = memo(() => {
     <Content templateRows={'1fr 6fr 3fr'}>
       <GridItem>
         <Text>{t('nav')}</Text>
+        <Text>{t('swap')}</Text>
       </GridItem>
       <GridItem bgColor={bgGolor}>
-        <Text>{t('swap')}</Text>
+        <Swapper />
       </GridItem>
       <GridItem />
     </Content>
