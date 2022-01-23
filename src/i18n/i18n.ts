@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './en/en.json';
 import ru from './ru/ru.json';
 
-export const defaultNS = 'ns1';
+export const defaultNS = 'translation';
 export const resources = {
   en: { translation: en },
   ru: { translation: ru },

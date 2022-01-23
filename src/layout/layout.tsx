@@ -1,16 +1,23 @@
-import { Box, Grid } from '@chakra-ui/react';
+import { Flex, Grid } from '@chakra-ui/react';
 import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Nav } from '../components/nav/nav';
 
 const Layout = memo(() => {
   return (
-    <Grid templateRows={'1fr 9fr'} h="full" w="full" minH="100vh" p={2}>
-      <Nav />
-      <Grid>
-        <Outlet />
+    <Flex h="100vh" w="100vw" justifyContent={'center'} p={2}>
+      <Grid
+        templateRows={'1fr 9fr'}
+        h="full"
+        w="full"
+        maxW={{ base: '100%', md: '400px', xl: '800px' }}
+      >
+        <Nav />
+        <Grid>
+          <Outlet />
+        </Grid>
       </Grid>
-    </Grid>
+    </Flex>
   );
 });
 

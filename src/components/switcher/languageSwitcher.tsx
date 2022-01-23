@@ -12,13 +12,9 @@ const LanguageSwitcher = () => {
 
   return (
     <IconButton
-      size="md"
-      fontSize="lg"
-      variant="ghost"
-      color="current"
-      marginLeft="2"
       onClick={changeLanguage}
       icon={<InfoIcon />}
+      h="full"
       aria-label={t('switch language')}
     />
   );

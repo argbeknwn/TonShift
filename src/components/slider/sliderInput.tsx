@@ -9,28 +9,32 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { memo, useState } from 'react';
 
 const SliderInput = memo(() => {
   const [value, setValue] = useState(0);
   const handleChange = (value: number | string) => setValue(value as number);
+  const [desktop] = useMediaQuery('(min-width: 767px)');
 
   return (
-    <Flex w="full">
-      <NumberInput maxW="100px" mr="2rem" value={value} onChange={handleChange}>
+    <Flex w="full" gap={4}>
+      {desktop && (
+        <Slider focusThumbOnChange={false} value={value} onChange={handleChange}>
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb fontSize="sm" color={'current'} boxSize={4} children={value} />
+        </Slider>
+      )}
+      <NumberInput w={'full'} value={value} onChange={handleChange}>
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
           <NumberDecrementStepper />
         </NumberInputStepper>
       </NumberInput>
-      <Slider flex="1" focusThumbOnChange={false} value={value} onChange={handleChange}>
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb fontSize="sm" boxSize="32px" children={value} />
-      </Slider>
     </Flex>
   );
 });

@@ -11,11 +11,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = props => {
 
   return (
     <IconButton
-      size="md"
-      fontSize="lg"
-      variant="ghost"
-      color="current"
-      marginLeft="2"
+      h="full"
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
       aria-label={`Switch to ${text} mode`}
