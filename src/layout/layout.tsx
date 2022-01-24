@@ -5,7 +5,7 @@ import { Nav } from '../components/nav/nav';
 
 const Layout = memo(() => {
   return (
-    <Flex h="100vh" w="100vw" justifyContent={'center'} p={2}>
+    <Flex h="100vh" w="100vw" justifyContent={'center'}>
       <Grid
         templateRows={'1fr 9fr'}
         h="full"

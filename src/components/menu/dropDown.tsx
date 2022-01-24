@@ -1,13 +1,9 @@
-import { Menu, MenuButton, MenuList, MenuItem, Button, keyframes } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { memo, useState } from 'react';
-import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
-
-const assetsMock = [
-  { id: 1, name: 'First', icon: 'First' },
-  { id: 2, name: 'Second', icon: 'Second' },
-  { id: 3, name: 'Third', icon: 'Third' },
-];
+import { FixedSizeList } from 'react-window';
+import { assetsMock } from '../../mocks/mocks';
 
 interface DropDownProps {
   items?: typeof assetsMock;
@@ -35,13 +31,22 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
             {selected.name}
           </MenuButton>
           <MenuList>
-            {items.map(item => {
-              return (
-                <MenuItem key={item.id} onClick={() => setSelected(item)}>
-                  {item.name}
-                </MenuItem>
-              );
-            })}
+            <FixedSizeList
+              innerElementType={'ul'}
+              itemData={assetsMock}
+              itemCount={assetsMock.length}
+              itemSize={20}
+              height={400}
+              width={200}
+            >
+              {({ data, index, style }: any) => {
+                return (
+                  <MenuItem style={style} onClick={() => setSelected(data[index])}>
+                    {data[index].name}
+                  </MenuItem>
+                );
+              }}
+            </FixedSizeList>
           </MenuList>
         </>
       )}
@@ -52,3 +57,6 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
 DropDown.displayName = 'DropDown';
 
 export { DropDown };
+function useResizeObserver<T>(): { ref: any; width?: 1 | undefined; height?: 1 | undefined } {
+  throw new Error('Function not implemented.');
+}

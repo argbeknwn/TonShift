@@ -1,10 +1,18 @@
-import { Button, GridItem, MenuItem, MenuList, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  GridItem,
+  MenuItem,
+  MenuList,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Content } from '../components/content/content';
 import { Swapper } from '../components/swapper/swapper';
 import { Settings } from '../components/menu/settings';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const SwapRoute = memo(() => {
   const { t } = useTranslation();
@@ -13,9 +21,12 @@ const SwapRoute = memo(() => {
   return (
     <Content templateRows={'1fr 6fr 3fr'}>
       <GridItem display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-        <Button>
-          <Text>{t('swap')}</Text>
-        </Button>
+        <Flex gap={2} p={2} rounded={8} bgColor={bgColor}>
+          <Button>
+            <Text>{t('swap')}</Text>
+          </Button>
+        </Flex>
+
         <Settings>
           <MenuList>
             <NavLink to={'swap'}>
