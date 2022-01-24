@@ -2,6 +2,7 @@ import { Menu, MenuButton, IconButton } from '@chakra-ui/react';
 import { memo } from 'react';
 import { SettingsIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
+import { Icon } from '../icon/icon';
 
 const Settings = memo(({ children }) => {
   const { t } = useTranslation();
@@ -11,7 +12,7 @@ const Settings = memo(({ children }) => {
       <MenuButton
         as={IconButton}
         aria-label={t('settings')}
-        icon={<SettingsIcon />}
+        icon={<Icon iconType="cog" />}
         variant="ghost"
       />
       {children}
