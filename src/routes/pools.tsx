@@ -13,6 +13,7 @@ import {
   Tabs,
   Text,
   useBreakpointValue,
+  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { memo } from 'react';
@@ -24,12 +25,12 @@ import { Swapper } from '../components/swapper/swapper';
 
 const PoolsRoute = memo(() => {
   const { t } = useTranslation();
-  const bgColor = useColorModeValue('gray.200', 'gray.700');
+  const { colorMode } = useColorMode();
 
   return (
     <Content templateRows={'1fr 9fr'}>
       <GridItem display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-        <Flex gap={2} p={2} rounded={8} bgColor={bgColor}>
+        <Flex gap={2} p={2} rounded={8} bgColor={`ton${colorMode}.box`}>
           <NavLink to={'/pools'}>
             <Button>
               <Text>{t('pools')}</Text>
@@ -47,7 +48,7 @@ const PoolsRoute = memo(() => {
           <IconButton aria-label={t('favorites')} icon={<StarIcon />} />
         </NavLink>
       </GridItem>
-      <GridItem bgColor={bgColor} rounded={16}>
+      <GridItem bgColor={`ton${colorMode}.box`} rounded={16}>
         <Outlet />
       </GridItem>
     </Content>

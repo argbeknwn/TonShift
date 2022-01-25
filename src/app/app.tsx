@@ -1,4 +1,4 @@
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { memo } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from '../layout/layout';
@@ -11,6 +11,7 @@ import '../i18n/i18n';
 import { Swapper } from '../components/swapper/swapper';
 import { Creator } from '../components/creator/creator';
 import { PoolsList } from '../components/list/poolsList';
+import { theme } from '../styles/theme';
 
 const App = memo(() => {
   return (

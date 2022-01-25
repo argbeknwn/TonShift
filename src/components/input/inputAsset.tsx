@@ -1,24 +1,24 @@
-import { InputGroup, Input, InputLeftAddon, useColorModeValue } from '@chakra-ui/react';
+import { Input, useColorMode, Box } from '@chakra-ui/react';
 import { memo } from 'react';
 import { DropDown } from '../menu/dropDown';
-import { SliderInput } from '../slider/sliderInput';
+import { NumberInput } from './numberInput';
 
 const InputAsset = memo(() => {
-  const bgColor = useColorModeValue('gray.50', 'gray.900');
+  const { colorMode } = useColorMode();
 
   return (
-    <InputGroup
-      rounded={8}
-      bgColor={bgColor}
+    <Box
+      rounded={20}
+      bgColor={`ton${colorMode}.input`}
       gap={4}
       display={'grid'}
       gridTemplateColumns={'1fr 2fr'}
+      alignContent={'center'}
+      p={8}
     >
-      <InputLeftAddon>
-        <DropDown />
-      </InputLeftAddon>
-      <SliderInput />
-    </InputGroup>
+      <DropDown />
+      <NumberInput />
+    </Box>
   );
 });
 

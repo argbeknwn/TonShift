@@ -1,9 +1,9 @@
-import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItem, Button, useBreakpointValue } from '@chakra-ui/react';
 import { memo, useState } from 'react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { FixedSizeList } from 'react-window';
 import { assetsMock } from '../../mocks/mocks';
+import { Icon } from '../icon/icon';
 
 interface DropDownProps {
   items?: typeof assetsMock;
@@ -20,28 +20,26 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
           <MenuButton
             isActive={isOpen}
             as={Button}
-            rightIcon={
-              <ChevronDownIcon
-                transition={'transform 0.3s ease-in-out'}
-                transform={`rotate(${isOpen ? 180 : 0}deg)`}
-              />
-            }
+            rightIcon={<Icon iconType="arrowDown" />}
             w="full"
+            fontSize={{ sm: '2xl' }}
+            variant="unstyled"
+            _focus={{ boxShadow: 'none' }}
           >
             {selected.name}
           </MenuButton>
-          <MenuList>
+          <MenuList width={{ base: '100vw', sm: 400 }}>
             <FixedSizeList
               innerElementType={'ul'}
               itemData={assetsMock}
               itemCount={assetsMock.length}
-              itemSize={20}
+              itemSize={36}
               height={400}
-              width={200}
+              width={'100%'}
             >
               {({ data, index, style }: any) => {
                 return (
-                  <MenuItem style={style} onClick={() => setSelected(data[index])}>
+                  <MenuItem h={36} style={style} onClick={() => setSelected(data[index])}>
                     {data[index].name}
                   </MenuItem>
                 );
@@ -57,6 +55,3 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
 DropDown.displayName = 'DropDown';
 
 export { DropDown };
-function useResizeObserver<T>(): { ref: any; width?: 1 | undefined; height?: 1 | undefined } {
-  throw new Error('Function not implemented.');
-}

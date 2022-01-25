@@ -22,7 +22,7 @@ import { NavRoutes } from './navRoutes';
 
 const Nav = memo(() => {
   const { t } = useTranslation();
-  const desktop = useBreakpointValue({ base: false, md: true });
+  const desktop = useBreakpointValue({ base: false, sm: true });
 
   return (
     <Grid alignContent={'center'} templateColumns="repeat(4, 1fr)" gap={4} h="full" w="full">
