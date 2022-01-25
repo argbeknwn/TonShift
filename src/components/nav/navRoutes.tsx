@@ -1,23 +1,39 @@
-import { Button, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Button, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 const NavRoutes = memo(() => {
   const { t } = useTranslation();
-  const bgColor = useColorModeValue('gray.300', 'gray.900');
+  const { colorMode } = useColorMode();
 
   return (
-    <Flex gap={2} p={2} rounded={4} bgColor={bgColor}>
+    <Flex gap={2} p={2} rounded={20} bgColor={`ton${colorMode}.box`}>
       <NavLink to={'swap'}>
-        <Button variant={'solid'} mr="-px">
-          {t('swap')}
-        </Button>
+        {({ isActive }) => (
+          <Button
+            bgColor={`ton${colorMode}.${isActive ? 'buttons' : 'hidden'}`}
+            color={`ton${colorMode}.${isActive ? 'accent' : 'text'}`}
+            rounded={20}
+            variant={'solid'}
+            mr="-px"
+          >
+            {t('swap')}
+          </Button>
+        )}
       </NavLink>
       <NavLink to={'pools'}>
-        <Button variant={'solid'} mr="-px">
-          {t('pools')}
-        </Button>
+        {({ isActive }) => (
+          <Button
+            bgColor={`ton${colorMode}.${isActive ? 'buttons' : 'hidden'}`}
+            color={`ton${colorMode}.${isActive ? 'accent' : 'text'}`}
+            rounded={20}
+            variant={'solid'}
+            mr="-px"
+          >
+            {t('pools')}
+          </Button>
+        )}
       </NavLink>
     </Flex>
   );

@@ -25,6 +25,7 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
             fontSize={{ sm: '2xl' }}
             variant="unstyled"
             _focus={{ boxShadow: 'none' }}
+            textTransform={'uppercase'}
           >
             {selected.name}
           </MenuButton>

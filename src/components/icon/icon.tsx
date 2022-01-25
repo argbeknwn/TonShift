@@ -8,7 +8,7 @@ interface IconCustomProps extends IconProps {
 
 const Icon = memo<IconCustomProps>(({ iconType = 'toncoin', ...props }) => {
   return (
-    <IconChakra width="25" height="25" viewBox="0 0 25 25" fill="none" {...props}>
+    <IconChakra width="6" height="6" viewBox="0 0 24 24" fill="none" {...props}>
       {icons[iconType]}
     </IconChakra>
   );

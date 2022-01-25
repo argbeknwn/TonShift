@@ -1,7 +1,8 @@
-import { Button, Grid, useColorMode } from '@chakra-ui/react';
+import { Button, Grid, useColorMode, Text } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Icon } from '../icon/icon';
+import { ConnectBtn } from '../buttons/connectBtn';
+
 import { InputAsset } from '../input/inputAsset';
 
 const Swapper = memo(() => {
@@ -10,19 +11,10 @@ const Swapper = memo(() => {
 
   return (
     <Grid p={{ base: '1rem', sm: '1.5rem' }} gap={4} bgColor={`ton${colorMode}.box`} rounded={20}>
+      <Text textTransform={'capitalize'}>{t('swap')}</Text>
       <InputAsset />
       <InputAsset />
-      <Button
-        rounded={20}
-        p={8}
-        textTransform={'capitalize'}
-        fontSize={{ sm: '2xl' }}
-        rightIcon={<Icon iconType="wallet" />}
-        bgColor={`ton${colorMode}.buttons`}
-        color={`ton${colorMode}.accent`}
-      >
-        {t('connect')}
-      </Button>
+      <ConnectBtn p={8} bgColor={`ton${colorMode}.buttons`} />
     </Grid>
   );
 });

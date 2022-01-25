@@ -19,7 +19,7 @@
   "switch language": "switch language",
   "options": "options",
   "nav": "navigation",
-  "connect wallet": "connect wallet",
+  "connect wallet": "Connect wallet",
   "settings": "settings",
   "create": "create",
   "favorites": "favorites",
@@ -40,5 +40,7 @@
   "adds": "adds",
   "removes": "removes",
   "min price": "min. price",
-  "max price": "max. price"
+  "max price": "max. price",
+  "close": "close",
+  "close connect wallet ": "close connect wallet"
 }

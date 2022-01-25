@@ -16,6 +16,9 @@ const colors = {
     empty: '#CECECE',
     gradientFrom: '#F0F1FF',
     gradientTo: '#D1EEFC',
+    white: 'white',
+    black: 'black',
+    hidden: 'hidden',
   },
   tondark: {
     accent: '#0088CC',
@@ -27,6 +30,9 @@ const colors = {
     empty: '#CECECE',
     gradientFrom: '#042247',
     gradientTo: '#000C1C',
+    white: 'white',
+    black: 'black',
+    hidden: 'hidden',
   },
 };
 

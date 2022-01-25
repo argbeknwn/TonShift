@@ -1,10 +1,11 @@
-import { Menu, MenuButton, IconButton } from '@chakra-ui/react';
+import { Menu, MenuButton, IconButton, useColorMode } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../icon/icon';
 
 const Settings = memo(({ children }) => {
   const { t } = useTranslation();
+  const { colorMode } = useColorMode();
 
   return (
     <Menu>
@@ -22,7 +23,8 @@ const Settings = memo(({ children }) => {
                   transform={`rotate(${isOpen ? 180 : 0}deg)`}
                 />
               }
-              variant="ghost"
+              variant="unstyled"
+              color={`ton${colorMode}.accent`}
             />
             {children}
           </>

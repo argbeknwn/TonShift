@@ -14,7 +14,7 @@ const InputAsset = memo(() => {
       display={'grid'}
       gridTemplateColumns={'1fr 2fr'}
       alignContent={'center'}
-      p={8}
+      p={{ base: 4, sm: 8 }}
     >
       <DropDown />
       <NumberInput />

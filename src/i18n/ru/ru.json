@@ -41,5 +41,7 @@
   "adds": "добавляет",
   "removes": "убирает",
   "min. price": "минимум",
-  "max. price": "максимум"
+  "max. price": "максимум",
+  "close": "закрыть",
+  "close wallet connect": "закрыть подключение кошелька"
 }

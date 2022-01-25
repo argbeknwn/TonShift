@@ -22,7 +22,7 @@ const SwapRoute = memo(() => {
   return (
     <Content templateRows={'1fr 9fr'}>
       <GridItem display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-        <Flex gap={2} p={2} rounded={20} bgColor={`ton${colorMode}.box`}>
+        {/*         <Flex gap={2} p={2} rounded={20} bgColor={`ton${colorMode}.box`}>
           <Button>
             <Text>{t('swap')}</Text>
           </Button>
@@ -39,7 +39,7 @@ const SwapRoute = memo(() => {
               <MenuItem command="⌘⇧N">{t('pool')}</MenuItem>
             </NavLink>
           </MenuList>
-        </Settings>
+        </Settings> */}
       </GridItem>
       <GridItem>
         <Swapper />
