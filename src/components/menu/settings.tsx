@@ -1,6 +1,5 @@
 import { Menu, MenuButton, IconButton } from '@chakra-ui/react';
 import { memo } from 'react';
-import { SettingsIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../icon/icon';
 
@@ -9,13 +8,26 @@ const Settings = memo(({ children }) => {
 
   return (
     <Menu>
-      <MenuButton
-        as={IconButton}
-        aria-label={t('settings')}
-        icon={<Icon iconType="cog" />}
-        variant="ghost"
-      />
-      {children}
+      {({ isOpen }) => {
+        return (
+          <>
+            <MenuButton
+              as={IconButton}
+              aria-label={t('settings')}
+              icon={
+                <Icon
+                  iconType="cog"
+                  transformOrigin={'50% 50%'}
+                  transition={'transform 0.3s ease-in-out'}
+                  transform={`rotate(${isOpen ? 180 : 0}deg)`}
+                />
+              }
+              variant="ghost"
+            />
+            {children}
+          </>
+        );
+      }}
     </Menu>
   );
 });

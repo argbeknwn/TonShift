@@ -1,5 +1,5 @@
 {
-  "app": "tonshift",
+  "app": "TonShift",
   "connect": "connect",
   "wallet": "wallet",
   "add": "add",
@@ -22,5 +22,23 @@
   "connect wallet": "connect wallet",
   "settings": "settings",
   "create": "create",
-  "favorites": "favorites"
+  "favorites": "favorites",
+  "add liquidity": "add liquidity",
+  "return to create": "return to create",
+  "create pool": "create pool",
+  "set price": "set price",
+  "transaction settings": "transaction settings",
+  "top pools": "top pools",
+  "slippage tolerance": "slippage tolerance",
+  "trade": "trade",
+  "tvl": "tvl",
+  "liquidity": "liquidity",
+  "fee rate": "fee rate",
+  "token amount": "token amount",
+  "time": "time",
+  "swaps": "swaps",
+  "adds": "adds",
+  "removes": "removes",
+  "min price": "min. price",
+  "max price": "max. price"
 }

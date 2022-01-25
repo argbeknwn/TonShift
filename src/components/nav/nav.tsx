@@ -9,6 +9,7 @@ import {
   useMediaQuery,
   Portal,
   Box,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -21,10 +22,10 @@ import { NavRoutes } from './navRoutes';
 
 const Nav = memo(() => {
   const { t } = useTranslation();
-  const [desktop] = useMediaQuery('(min-width: 767px)');
+  const desktop = useBreakpointValue({ base: false, md: true });
 
   return (
-    <Grid alignContent={'center'} templateColumns="repeat(4, 1fr)" gap={4} h="full">
+    <Grid alignContent={'center'} templateColumns="repeat(4, 1fr)" gap={4} h="full" w="full">
       {desktop ? (
         <NavRoutes />
       ) : (

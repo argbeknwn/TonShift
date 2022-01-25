@@ -7,10 +7,10 @@ import useResizeObserver from 'use-resize-observer';
 
 const PoolsList = memo(() => {
   const { t } = useTranslation();
-  const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
+  const { ref, height = 1 } = useResizeObserver<HTMLDivElement>();
 
   return (
-    <Grid templateRows={'0.5fr 10fr '} h="full" gap={4} p={4}>
+    <Grid templateRows={'1fr 9fr'} h="full" gap={4} p={4}>
       <GridItem>
         <Button w="full">{t('connect wallet')}</Button>
       </GridItem>
@@ -21,7 +21,7 @@ const PoolsList = memo(() => {
           itemCount={assetsMock.length}
           itemSize={20}
           height={height}
-          width={width}
+          width={'100%'}
         >
           {({ data, index, style }) => {
             return <li style={style}>{data[index].name}</li>;

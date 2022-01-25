@@ -12,6 +12,7 @@ import {
   TabPanels,
   Tabs,
   Text,
+  useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { memo } from 'react';
@@ -35,9 +36,11 @@ const PoolsRoute = memo(() => {
             </Button>
           </NavLink>
           <NavLink to={'create'}>
-            <Button>
-              <Text>{t('create')}</Text>
-            </Button>
+            {({ isActive }) => (
+              <Button>
+                <Text>{t(isActive ? 'add liquidity' : 'create')}</Text>
+              </Button>
+            )}
           </NavLink>
         </Flex>
         <NavLink to={'favorites'}>
