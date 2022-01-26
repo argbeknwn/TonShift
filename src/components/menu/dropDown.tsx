@@ -1,25 +1,39 @@
-import { Menu, MenuButton, MenuList, MenuItem, Button, useBreakpointValue } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, Image, Button } from '@chakra-ui/react';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FixedSizeList } from 'react-window';
-import { assetsMock } from '../../mocks/mocks';
+
+import { coinsMock } from '../../mocks/coins';
+
 import { Icon } from '../icon/icon';
+import { PoolsList } from '../list/poolsList';
 
 interface DropDownProps {
-  items?: typeof assetsMock;
+  items?: typeof coinsMock;
 }
 
-const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
+const DropDown = memo<DropDownProps>(({ items = coinsMock }) => {
   const { t } = useTranslation();
   const [selected, setSelected] = useState(items[0]);
 
   return (
-    <Menu>
-      {({ isOpen }) => (
+    <Menu isLazy>
+      {({ isOpen, onClose }) => (
         <>
           <MenuButton
             isActive={isOpen}
+            display={'grid'}
+            alignContent={'center'}
+            gridTemplateColumns={'1fr 1fr 1fr'}
             as={Button}
+            leftIcon={
+              <Image
+                borderRadius="full"
+                boxSize={{ base: 4, sm: 8 }}
+                src={selected.image}
+                alt={selected.name}
+                fallbackSrc="https://via.placeholder.com/32"
+              />
+            }
             rightIcon={<Icon iconType="arrowDown" />}
             w="full"
             fontSize={{ sm: '2xl' }}
@@ -27,25 +41,10 @@ const DropDown = memo<DropDownProps>(({ items = assetsMock }) => {
             _focus={{ boxShadow: 'none' }}
             textTransform={'uppercase'}
           >
-            {selected.name}
+            {selected.symbol}
           </MenuButton>
-          <MenuList width={{ base: '100vw', sm: 400 }}>
-            <FixedSizeList
-              innerElementType={'ul'}
-              itemData={assetsMock}
-              itemCount={assetsMock.length}
-              itemSize={36}
-              height={400}
-              width={'100%'}
-            >
-              {({ data, index, style }: any) => {
-                return (
-                  <MenuItem h={36} style={style} onClick={() => setSelected(data[index])}>
-                    {data[index].name}
-                  </MenuItem>
-                );
-              }}
-            </FixedSizeList>
+          <MenuList height={'50vh'} width={{ base: '100vw', sm: 400 }}>
+            <PoolsList handler={setSelected} onClose={onClose} />
           </MenuList>
         </>
       )}
