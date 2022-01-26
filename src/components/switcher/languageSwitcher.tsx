@@ -1,6 +1,5 @@
 import React from 'react';
-import { IconButton } from '@chakra-ui/react';
-import { InfoIcon } from '@chakra-ui/icons';
+import { Button, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = () => {
@@ -11,12 +10,14 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <IconButton
+    <Button
       onClick={changeLanguage}
-      icon={<InfoIcon />}
-      h="full"
       aria-label={t('switch language')}
-    />
+      variant="unstyled"
+      value={i18n.language}
+    >
+      {i18n.language}
+    </Button>
   );
 };
 

@@ -21,11 +21,11 @@ const Layout = memo(() => {
       justifyContent={'center'}
       p={2}
     >
-      <Grid templateRows={'1fr 9fr'} w={{ base: 'full', sm: '600px' }}>
+      <Grid templateRows={'1fr 9fr'} w={{ base: 'full', sm: '800px' }}>
         <GridItem>
           <Nav />
         </GridItem>
-        <GridItem w="full">
+        <GridItem justifySelf={'center'} w={{ base: 'full', sm: '600px' }}>
           <Outlet />
         </GridItem>
       </Grid>

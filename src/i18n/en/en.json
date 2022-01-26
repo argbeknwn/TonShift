@@ -42,5 +42,14 @@
   "min price": "min. price",
   "max price": "max. price",
   "close": "close",
-  "close connect wallet ": "close connect wallet"
+  "close wallet connect": "close wallet connect",
+  "light theme": "light theme",
+  "dark theme": "dark theme",
+  "ru language": "russian language",
+  "en language": "english language",
+  "russian": "русский",
+  "english": "english",
+  "ru": "ru",
+  "en": "en",
+  "language": "language"
 }

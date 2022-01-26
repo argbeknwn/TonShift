@@ -43,5 +43,14 @@
   "min. price": "минимум",
   "max. price": "максимум",
   "close": "закрыть",
-  "close wallet connect": "закрыть подключение кошелька"
+  "close wallet connect": "закрыть подключение кошелька",
+  "light theme": "светлая тема",
+  "dark theme": "тёмная тема",
+  "ru language": "русский язык",
+  "en language": "английский язык",
+  "russian": "русский",
+  "english": "english",
+  "ru": "ru",
+  "en": "en",
+  "language": "язык"
 }

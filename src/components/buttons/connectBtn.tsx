@@ -11,6 +11,7 @@ import {
   useDisclosure,
   Text,
   useBreakpointValue,
+  Flex,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,14 +23,16 @@ const ConnectBtn = memo<ButtonProps>(props => {
   const { t } = useTranslation();
   const { colorMode } = useColorMode();
   const { isOpen, onToggle, onClose } = useDisclosure();
-  const variant = useBreakpointValue({ base: 'bottom', sm: 'right' }) as DrawerPlacement;
+  const variant: 'bottom' | 'right' | undefined = useBreakpointValue({
+    base: 'bottom',
+    sm: 'right',
+  });
 
   return (
     <>
       <Button
         onClick={onToggle}
         rounded={20}
-        p={4}
         textTransform={'capitalize'}
         fontSize={{ sm: '2xl' }}
         rightIcon={<Icon iconType="wallet" />}
@@ -47,28 +50,38 @@ const ConnectBtn = memo<ButtonProps>(props => {
         <DrawerOverlay />
         <DrawerContent
           h={{ base: '85vh', sm: '100vh' }}
-          rounded={{ base: '20px 20px 0 0', sm: '20px 0 0 20px' }}
           color={`ton${colorMode}.text`}
+          boxShadow={'none'}
+          bg={'none'}
+          p={4}
         >
-          <DrawerHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-            <Text>{t('connect wallet')}</Text>
-            <IconButton
-              onClick={onClose}
-              aria-label={t('close wallet connect')}
-              icon={<Icon iconType="times" />}
-              variant={'unstyled'}
-            />
-          </DrawerHeader>
-          <DrawerBody
-            display={'grid'}
-            gridTemplateColumns={`1fr 1fr`}
-            gridTemplateRows={`1fr 1fr 8fr`}
-            gap={16}
+          <Flex
+            rounded={20}
+            bgColor={`ton${colorMode}.box`}
+            flexDirection={'column'}
+            w={'full'}
+            h={'full'}
           >
-            {wallets.map(({ id, name }) => {
-              return <Card key={id} text={name} />;
-            })}
-          </DrawerBody>
+            <DrawerHeader display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
+              <Text>{t('connect wallet')}</Text>
+              <IconButton
+                onClick={onClose}
+                aria-label={t('close wallet connect')}
+                icon={<Icon iconType="times" />}
+                variant={'unstyled'}
+              />
+            </DrawerHeader>
+            <DrawerBody
+              display={'grid'}
+              gridTemplateColumns={`1fr 1fr`}
+              gridTemplateRows={`1fr 1fr 8fr`}
+              gap={16}
+            >
+              {wallets.map(({ id, name }) => {
+                return <Card key={id} text={name} />;
+              })}
+            </DrawerBody>
+          </Flex>
         </DrawerContent>
       </Drawer>
     </>

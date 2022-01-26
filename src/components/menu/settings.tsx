@@ -8,7 +8,7 @@ const Settings = memo(({ children }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Menu>
+    <Menu closeOnSelect={false} isLazy={true}>
       {({ isOpen }) => {
         return (
           <>
