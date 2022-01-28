@@ -1,4 +1,4 @@
-import { Input, useColorMode, Box } from '@chakra-ui/react';
+import { Input, useColorMode, Box, theme } from '@chakra-ui/react';
 import { memo } from 'react';
 import { DropDown } from '../menu/dropDown';
 import { NumberInput } from './numberInput';
@@ -19,6 +19,7 @@ const InputAsset = memo<InputAssetProps>(({ id }) => {
       gridTemplateColumns={'1fr 2fr'}
       alignContent={'center'}
       p={{ base: 4, sm: 8 }}
+      _focusWithin={{ boxShadow: theme.shadows.outline }}
     >
       <DropDown id={id} />
       <NumberInput id={id} />

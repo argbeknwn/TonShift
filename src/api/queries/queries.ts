@@ -15,7 +15,7 @@ const simple_supported = async (): Promise<unknown | null> => {
   return res.data;
 };
 
-const simple_price = async ({ id, vs_currencies }: SimplePriceProps): Promise<unknown | null> => {
+const simple_price = async ({ id, vs_currencies }: SimplePriceProps): Promise<any | null> => {
   const res = await COINGECKO.get(`/simple/price?ids=${id}&vs_currencies=${vs_currencies}`);
   return res.data;
 };

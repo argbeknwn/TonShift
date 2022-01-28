@@ -25,4 +25,5 @@ interface Coin {
   symbol: string;
   total_supply: number;
   total_volume: number;
+  value: number;
 }

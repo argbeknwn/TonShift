@@ -1,33 +1,42 @@
-import { Input, useNumberInput } from '@chakra-ui/react';
-import { memo } from 'react';
+import {
+  NumberInput as NumberInputChakra,
+  NumberInputField,
+  useNumberInput,
+} from '@chakra-ui/react';
+import { ChangeEvent, memo, useCallback, useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { useStoreon } from 'storeon/react';
+import { simple_price } from '../../api/queries/queries';
+import { deepGet } from '../../utils/deepGet';
 
 interface NumberInputProps {
-  id?: 'input' | 'output';
+  id: 'input' | 'output';
 }
 
-const NumberInput = memo<NumberInputProps>(() => {
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
-    step: 0.1,
-    defaultValue: 1,
-    min: 1,
-    precision: 2,
-  });
+const NumberInput = memo<NumberInputProps>(({ id }) => {
+  const { dispatch, [id]: coin } = useStoreon(id);
 
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps();
+  const handleChange = (value: string) => {
+    dispatch('setAsset', { id, value: { ...coin, value } });
+  };
 
   return (
-    /*     <HStack>
-      <Button display={{ sm: 'none' }} {...inc}>
-        +
-      </Button>
-      <Input textAlign={'right'} {...input} />
-      <Button display={{ sm: 'none' }} {...dec}>
-        -
-      </Button>
-    </HStack> */
-    <Input fontSize={{ sm: '2xl' }} textAlign={'right'} {...input} variant={'unstyled'} />
+    <NumberInputChakra
+      onChange={handleChange}
+      value={coin?.value || 0}
+      defaultValue={0}
+      precision={0}
+      step={0.1}
+      min={0}
+      size={'lg'}
+    >
+      <NumberInputField
+        textAlign={'right'}
+        border={'none'}
+        boxShadow={'none'}
+        _focus={{ boxShadow: 'none' }}
+      />
+    </NumberInputChakra>
   );
 });
 
