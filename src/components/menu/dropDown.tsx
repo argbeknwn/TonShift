@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuList, Image, Button } from '@chakra-ui/react';
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useStoreon } from 'storeon/react';
 
 import { coinsMock } from '../../mocks/coins';
 
@@ -8,12 +9,17 @@ import { Icon } from '../icon/icon';
 import { PoolsList } from '../list/poolsList';
 
 interface DropDownProps {
-  items?: typeof coinsMock;
+  id: 'input' | 'output';
 }
 
-const DropDown = memo<DropDownProps>(({ items = coinsMock }) => {
+const DropDown = memo<DropDownProps>(({ id }) => {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState(items[0]);
+
+  const { dispatch, [id]: data } = useStoreon(id);
+
+  const handleSelect = useCallback((value: Coin) => {
+    dispatch('setAsset', { id, value });
+  }, []);
 
   return (
     <Menu isLazy>
@@ -29,8 +35,8 @@ const DropDown = memo<DropDownProps>(({ items = coinsMock }) => {
               <Image
                 borderRadius="full"
                 boxSize={{ base: 4, sm: 8 }}
-                src={selected.image}
-                alt={selected.name}
+                src={data?.image}
+                alt={data?.name}
                 fallbackSrc="https://via.placeholder.com/32"
               />
             }
@@ -41,10 +47,10 @@ const DropDown = memo<DropDownProps>(({ items = coinsMock }) => {
             _focus={{ boxShadow: 'none' }}
             textTransform={'uppercase'}
           >
-            {selected.symbol}
+            {data?.symbol}
           </MenuButton>
           <MenuList height={'50vh'} width={{ base: '100vw', sm: 400 }}>
-            <PoolsList handler={setSelected} onClose={onClose} />
+            <PoolsList handler={handleSelect} onClose={onClose} />
           </MenuList>
         </>
       )}

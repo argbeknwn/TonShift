@@ -12,8 +12,12 @@ import { Swapper } from '../components/swapper/swapper';
 import { Creator } from '../components/creator/creator';
 import { PoolsList } from '../components/list/poolsList';
 import { theme } from '../styles/theme';
+import { useQuery } from 'react-query';
+import { coins_markets } from '../api/queries/queries';
 
 const App = memo(() => {
+  const { data, status, error } = useQuery('coins_markets', coins_markets);
+
   return (
     <ChakraProvider theme={theme}>
       <Routes>

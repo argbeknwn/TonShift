@@ -56,8 +56,8 @@ const Creator = memo(() => {
       </GridItem>
       <Grid gap={8} display={isOpen ? 'none' : 'grid'}>
         <Grid alignContent={'center'} gap={4}>
-          <InputAsset />
-          <InputAsset />
+          <InputAsset id="input" />
+          <InputAsset id="output" />
         </Grid>
         <Grid templateColumns={'2fr 1fr 1fr 1fr'} alignContent={'center'} gap={4}>
           <Text>{t('fee rate')}</Text>

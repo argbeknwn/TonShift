@@ -30,6 +30,18 @@ import react from '@vitejs/plugin-react';
   },
 }; */
 
+const helpers = [
+  'react-window',
+  'react-i18next',
+  'react-router-dom',
+  'react-query',
+  'i18next',
+  'axios',
+  'use-resize-observer',
+  'idb-keyval',
+  'web-vitals',
+];
+
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
@@ -37,8 +49,8 @@ export default defineConfig({
       output: {
         manualChunks: id => {
           if (id.includes('node_modules')) {
-            if (id.includes('react-window')) {
-              return 'vendor_react-window';
+            if (helpers.some(lib => id.includes(lib))) {
+              return 'vendor_libs';
             }
 
             return 'vendor';

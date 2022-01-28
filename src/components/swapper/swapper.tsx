@@ -14,8 +14,8 @@ const Swapper = memo(() => {
       <Text color={`ton${colorMode}.text`} textTransform={'capitalize'}>
         {t('swap')}
       </Text>
-      <InputAsset />
-      <InputAsset />
+      <InputAsset id="input" />
+      <InputAsset id="output" />
       <ConnectBtn p={8} bgColor={`ton${colorMode}.buttons`} />
     </Grid>
   );

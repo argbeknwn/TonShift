@@ -3,7 +3,11 @@ import { memo } from 'react';
 import { DropDown } from '../menu/dropDown';
 import { NumberInput } from './numberInput';
 
-const InputAsset = memo(() => {
+export interface InputAssetProps {
+  id: 'input' | 'output';
+}
+
+const InputAsset = memo<InputAssetProps>(({ id }) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -16,8 +20,8 @@ const InputAsset = memo(() => {
       alignContent={'center'}
       p={{ base: 4, sm: 8 }}
     >
-      <DropDown />
-      <NumberInput />
+      <DropDown id={id} />
+      <NumberInput id={id} />
     </Box>
   );
 });

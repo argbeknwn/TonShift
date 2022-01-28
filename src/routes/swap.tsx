@@ -1,24 +1,10 @@
-import {
-  Button,
-  Flex,
-  GridItem,
-  MenuItem,
-  MenuList,
-  Text,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { GridItem, useColorMode } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Content } from '../components/content/content';
 import { Swapper } from '../components/swapper/swapper';
-import { Settings } from '../components/menu/settings';
-import { NavLink } from 'react-router-dom';
 
 const SwapRoute = memo(() => {
-  const { t } = useTranslation();
-  const { colorMode } = useColorMode();
-
   return (
     <Content templateRows={'1fr 9fr'}>
       <GridItem display={'flex'} alignItems={'center'} justifyContent={'space-between'}>

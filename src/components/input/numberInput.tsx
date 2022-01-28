@@ -1,7 +1,11 @@
-import { Flex, useNumberInput, Button, HStack, Input } from '@chakra-ui/react';
+import { Input, useNumberInput } from '@chakra-ui/react';
 import { memo } from 'react';
 
-const NumberInput = memo(() => {
+interface NumberInputProps {
+  id?: 'input' | 'output';
+}
+
+const NumberInput = memo<NumberInputProps>(() => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 0.1,
     defaultValue: 1,
