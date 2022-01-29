@@ -52,5 +52,8 @@
   "ru": "ru",
   "en": "en",
   "language": "language",
-  "turn over": "turn over"
+  "turn over": "turn over",
+  "price": "USD",
+  "search": "search by symbol or name",
+  "name": "name"
 }

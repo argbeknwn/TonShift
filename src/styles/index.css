@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--chakra-colors-tonlight-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--chakra-colors-tonlight-accent);
+}

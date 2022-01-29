@@ -12,7 +12,8 @@ const Content = memo<GridProps>(props => {
         src={img}
         alt={'image'}
         left={'50%'}
-        transform={{ base: 'translate(-50%,115%)', sm: 'translate(-50%,50%)' }}
+        top={'15%'}
+        transform={{ base: 'translateX(-50%)', sm: 'translateX(-50%)' }}
       />
       {props.children}
     </Grid>

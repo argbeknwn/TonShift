@@ -12,6 +12,8 @@ import { store } from './store/store';
 
 import { App } from './app/app';
 
+import '@/styles/index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <ColorModeScript />

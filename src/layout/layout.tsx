@@ -27,6 +27,7 @@ const Layout = memo(() => {
       w="100vw"
       justifyContent={'center'}
       p={2}
+      overflow={'hidden'}
     >
       <Grid templateRows={'1fr 9fr'} w={{ base: 'full', sm: '800px' }}>
         <GridItem>
