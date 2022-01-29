@@ -77,8 +77,8 @@ const ConnectBtn = memo<ButtonProps>(props => {
               gridTemplateRows={`1fr 1fr 8fr`}
               gap={16}
             >
-              {wallets.map(({ id, name }) => {
-                return <Card key={id} text={name} />;
+              {wallets.map(({ id, name, image }) => {
+                return <Card key={id} text={name} src={image} />;
               })}
             </DrawerBody>
           </Flex>

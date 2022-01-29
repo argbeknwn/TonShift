@@ -20,6 +20,7 @@ const InputAsset = memo<InputAssetProps>(({ id }) => {
       alignContent={'center'}
       p={{ base: 4, sm: 8 }}
       _focusWithin={{ boxShadow: theme.shadows.outline }}
+      _hover={{ boxShadow: theme.shadows.outline }}
     >
       <DropDown id={id} />
       <NumberInput id={id} />

@@ -1,21 +1,28 @@
 import {
+  Center,
   Flex,
   Grid,
   GridItem,
   useBreakpointValue,
   useColorMode,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Nav } from '../components/nav/nav';
+import bg from '../assets/background/bg.svg';
 
 const Layout = memo(() => {
   const { colorMode } = useColorMode();
 
   return (
     <Flex
-      bgGradient={`linear(to-t, ton${colorMode}.gradientFrom, ton${colorMode}.gradientTo)`}
+      pos={'relative'}
+      //bgGradient={`linear(to-t, ton${colorMode}.gradientFrom, ton${colorMode}.gradientTo)`}
+      bgImage={`url(${bg}) ,linear-gradient(to top, var(--chakra-colors-ton${colorMode}-gradientFrom), var(--chakra-colors-ton${colorMode}-gradientTo))`}
+      bgPos={'center'}
+      bgRepeat={'no-repeat'}
       h="100vh"
       w="100vw"
       justifyContent={'center'}

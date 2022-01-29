@@ -8,7 +8,7 @@ import {
   useDisclosure,
   theme,
 } from '@chakra-ui/react';
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useStoreon } from 'storeon/react';
@@ -45,6 +45,8 @@ const Swapper = memo(() => {
 
   const handleClick = () => dispatch('turnOver');
 
+  const [change, setChange] = useState(false);
+
   return (
     <Grid p={{ base: '1rem', sm: '1.5rem' }} gap={4} bgColor={`ton${colorMode}.box`} rounded={20}>
       <Text color={`ton${colorMode}.text`} textTransform={'capitalize'}>
@@ -53,19 +55,20 @@ const Swapper = memo(() => {
       <Flex pos={'relative'} gap={4} flexDirection={'column'}>
         <InputAsset id="input" />
         <IconButton
+          onMouseEnter={() => setChange(true)}
+          onMouseLeave={() => setChange(false)}
           onClick={handleClick}
           w={8}
           rounded={'full'}
           color={`ton${colorMode}.text`}
           bgColor={`ton${colorMode}.buttons`}
           borderColor={`ton${colorMode}.buttons`}
+          transform={'translate(-50%,-50%)'}
           top={'50%'}
           right={'5%'}
-          transform={`translate(-50%,-50%) rotate(${turnOver ? '0' : '180'}deg)`}
-          transition={'transform 0.3s ease-in-out'}
           position={'absolute'}
           aria-label={t('turn over')}
-          icon={<Icon iconType={'arrow'} />}
+          icon={<Icon iconType={change ? 'change' : 'arrow'} />}
           boxShadow={theme.shadows.outline}
           variant={'unstyled'}
         />

@@ -7,7 +7,13 @@ interface CardProps extends ImageProps {
 
 const Card = memo<CardProps>(props => {
   return (
-    <Flex flexDirection={'column'} alignItems={'center'} justifyContent={'center'} gap={4}>
+    <Flex
+      cursor={'pointer'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      gap={4}
+    >
       <Image
         borderRadius="full"
         boxSize={{ base: 100, sm: 150 }}

@@ -46,18 +46,21 @@ const Nav = memo(() => {
       w="full"
     >
       <NavLink to="/">
-        <IconButton
-          h={12}
-          w={12}
-          rounded={'50%'}
-          bgColor={`ton${colorMode}.accent`}
-          color={`ton${colorMode}.white`}
-          variant={'solid'}
-          aria-label={t('app')}
-          icon={<Icon iconType="toncoin" />}
-          _focus={{ boxShadow: 'none' }}
-          _hover={{ bg: `ton${colorMode}.accent` }}
-        />
+        <Flex alignItems={'center'} gap={4} fontWeight={'bold'} color={`ton${colorMode}.accent`}>
+          <IconButton
+            h={12}
+            w={12}
+            isRound
+            bgColor={`ton${colorMode}.accent`}
+            color={`ton${colorMode}.white`}
+            variant={'solid'}
+            aria-label={t('app')}
+            icon={<Icon iconType="toncoin" />}
+            _focus={{ boxShadow: 'none' }}
+            _hover={{ bg: `ton${colorMode}.accent` }}
+          />
+          <Text display={{ base: 'none', sm: 'flex' }}>{t('app')}</Text>
+        </Flex>
       </NavLink>
       {desktop ? (
         <Flex justifyContent={'center'}>
