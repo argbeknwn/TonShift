@@ -2,6 +2,7 @@ import { GridItem, useColorMode } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Content } from '../components/content/content';
+import { DiamondImg } from '../components/icon/decor';
 import { Swapper } from '../components/swapper/swapper';
 
 const SwapRoute = memo(() => {
@@ -27,7 +28,8 @@ const SwapRoute = memo(() => {
           </MenuList>
         </Settings> */}
       </GridItem>
-      <GridItem>
+      <GridItem position={'relative'}>
+        <DiamondImg />
         <Swapper />
       </GridItem>
     </Content>

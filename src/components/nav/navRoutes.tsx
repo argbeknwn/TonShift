@@ -8,7 +8,7 @@ const NavRoutes = memo(() => {
   const { colorMode } = useColorMode();
 
   return (
-    <Flex gap={2} p={2} rounded={20} bgColor={`ton${colorMode}.box`}>
+    <Flex gap={2} p={1} rounded={40} bgColor={`ton${colorMode}.box`}>
       <NavLink to={'swap'}>
         {({ isActive }) => (
           <Button

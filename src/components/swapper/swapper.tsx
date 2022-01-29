@@ -48,7 +48,13 @@ const Swapper = memo(() => {
   const [change, setChange] = useState(false);
 
   return (
-    <Grid p={{ base: '1rem', sm: '1.5rem' }} gap={4} bgColor={`ton${colorMode}.box`} rounded={20}>
+    <Grid
+      boxShadow={`0 0 15px 0 var(--chakra-colors-ton${colorMode}-shadow)`}
+      p={{ base: '1rem', sm: '1.5rem' }}
+      gap={4}
+      bgColor={`ton${colorMode}.box`}
+      rounded={20}
+    >
       <Text color={`ton${colorMode}.text`} textTransform={'capitalize'}>
         {t('swap')}
       </Text>

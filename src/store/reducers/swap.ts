@@ -1,19 +1,5 @@
 import { StoreonModule } from 'storeon';
 
-interface State {
-  input: any | null;
-  output: any | null;
-  exchange: number;
-  turnOver: boolean;
-}
-
-interface Events {
-  switch: undefined;
-  setAsset: { id: 'input' | 'output'; value: Coin };
-  setExchange: number;
-  turnOver: undefined;
-}
-
 const swap: StoreonModule<State, Events> = store => {
   store.on('@init', () => ({ input: null, output: null, exchange: 0, turnOver: false }));
   store.on('setAsset', (state, { id, value }) => {

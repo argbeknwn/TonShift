@@ -55,5 +55,7 @@
   "turn over": "turn over",
   "price": "USD",
   "search": "search by symbol or name",
-  "name": "name"
+  "name": "name",
+  "price_change_24h": "changes 24h",
+  "market_cap": "market_cap"
 }

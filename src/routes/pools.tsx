@@ -20,8 +20,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Content } from '../components/content/content';
-import { Settings } from '../components/menu/settings';
-import { Swapper } from '../components/swapper/swapper';
+import { DiamondImg } from '../components/icon/decor';
 
 const PoolsRoute = memo(() => {
   const { t } = useTranslation();
@@ -48,7 +47,13 @@ const PoolsRoute = memo(() => {
           <IconButton aria-label={t('favorites')} icon={<StarIcon />} />
         </NavLink>
       </GridItem>
-      <GridItem bgColor={`ton${colorMode}.box`} rounded={16}>
+      <GridItem
+        pos={'relative'}
+        bgColor={`ton${colorMode}.box`}
+        rounded={20}
+        boxShadow={`0 0 15px 0 var(--chakra-colors-ton${colorMode}-shadow)`}
+      >
+        <DiamondImg />
         <Outlet />
       </GridItem>
     </Content>

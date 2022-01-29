@@ -19,6 +19,7 @@ const colors = {
     white: 'white',
     black: 'black',
     hidden: 'hidden',
+    shadow: 'rgb(0 136 204 / 15%)',
   },
   tondark: {
     accent: '#0088CC',
@@ -33,6 +34,7 @@ const colors = {
     white: 'white',
     black: 'black',
     hidden: 'hidden',
+    shadow: '#0E1335',
   },
 };
 

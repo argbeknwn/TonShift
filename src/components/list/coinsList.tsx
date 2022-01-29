@@ -129,12 +129,14 @@ const CoinsList = memo<PoolsListProps>(({ handler, onClose, isOpen = true }) => 
                   <Grid
                     alignContent={'center'}
                     gridTemplateColumns={'1fr 4fr'}
+                    p={2}
+                    rounded={20}
                     style={style}
                     onClick={() => {
                       handleClick(data[index]);
                     }}
                     cursor={'pointer'}
-                    _hover={{ boxShadow: `0 0 1px 0 grey`, color: `ton${colorMode}.accent` }}
+                    _hover={{ boxShadow: `inset 0 0 1px 0 grey`, color: `ton${colorMode}.accent` }}
                     transition={'boxShadow 1s ease-in-out, color 0.3s ease-in-out'}
                   >
                     <Flex gap={4} alignItems={'center'}>
