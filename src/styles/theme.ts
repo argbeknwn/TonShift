@@ -5,7 +5,7 @@ const config: ThemeConfig = {
   /* useSystemColorMode: false, */
 };
 
-const colors = {
+export const colors = {
   tonlight: {
     accent: '#0088CC',
     box: '#F3FBFE',

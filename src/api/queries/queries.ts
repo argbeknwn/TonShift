@@ -30,7 +30,7 @@ const coins_markets = async (): Promise<Coin[] | null> => {
   return res.data;
 };
 
-const market_chart = async ({ id, vs_currencies }: ExchangeProps): Promise<Coin[] | null> => {
+const market_chart = async ({ id, vs_currencies }: ExchangeProps): Promise<any | null> => {
   const res = await COINGECKO.get(`/coins/${id}/market_chart?vs_currency=${vs_currencies}&days=7`);
   return res.data;
 };

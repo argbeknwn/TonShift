@@ -1,21 +1,5 @@
 import { StarIcon } from '@chakra-ui/icons';
-import {
-  Button,
-  Flex,
-  GridItem,
-  IconButton,
-  MenuItem,
-  MenuList,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  Text,
-  useBreakpointValue,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Button, Flex, GridItem, IconButton, Text, useColorMode } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, Outlet } from 'react-router-dom';

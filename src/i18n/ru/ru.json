@@ -61,5 +61,8 @@
   "market_cap": "рын кап",
   "tokens": "токены",
   "total locked": "зафиксировано",
-  "earnings": "заработок"
+  "earnings": "заработок",
+  "market_caps": "рыночная кап",
+  "prices": "цены",
+  "total_volumes": "объемы"
 }
