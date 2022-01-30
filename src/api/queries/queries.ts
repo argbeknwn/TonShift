@@ -1,6 +1,6 @@
 import { COINGECKO } from '../instance';
 
-interface SimplePriceProps {
+interface ExchangeProps {
   id: string;
   vs_currencies: string;
 }
@@ -15,7 +15,7 @@ const simple_supported = async (): Promise<unknown | null> => {
   return res.data;
 };
 
-const simple_price = async ({ id, vs_currencies }: SimplePriceProps): Promise<any | null> => {
+const simple_price = async ({ id, vs_currencies }: ExchangeProps): Promise<Exchange | null> => {
   const res = await COINGECKO.get(`/simple/price?ids=${id}&vs_currencies=${vs_currencies}`);
   return res.data;
 };
@@ -30,4 +30,9 @@ const coins_markets = async (): Promise<Coin[] | null> => {
   return res.data;
 };
 
-export { ping, simple_supported, simple_price, coins_list, coins_markets };
+const market_chart = async ({ id, vs_currencies }: ExchangeProps): Promise<Coin[] | null> => {
+  const res = await COINGECKO.get(`/coins/${id}/market_chart?vs_currency=${vs_currencies}&days=7`);
+  return res.data;
+};
+
+export { ping, simple_supported, simple_price, coins_list, coins_markets, market_chart };

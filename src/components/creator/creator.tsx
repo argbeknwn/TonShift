@@ -12,10 +12,12 @@ import {
   NumberInputField,
   NumberInputStepper,
   Text,
+  useColorMode,
   useDisclosure,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useStoreon } from 'storeon/react';
 import { Icon } from '../icon/icon';
 import { InputAsset } from '../input/inputAsset';
 
@@ -42,11 +44,16 @@ const InputLiquidity = memo<InputLiquidityProps>(({ text }) => {
 
 const Creator = memo(() => {
   const { t } = useTranslation();
-  const { isOpen, onToggle } = useDisclosure();
+  const { colorMode } = useColorMode();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+  const { dispatch } = useStoreon();
+
+  const handleAddPool = () => {
+    dispatch('addPool');
+  };
 
   return (
     <Grid gap={8} p={4}>
-      <Button>{t('connect wallet')}</Button>
       <GridItem>
         <IconButton
           aria-label={t('return to create')}
@@ -88,6 +95,22 @@ const Creator = memo(() => {
           <InputLiquidity text={t('max price')} />
         </Grid>
       </GridItem>
+      <Button
+        onClick={handleAddPool}
+        size={'lg'}
+        rounded={20}
+        p={8}
+        bgColor={`ton${colorMode}.buttons`}
+        textTransform={'capitalize'}
+        fontSize={{ sm: 'lg' }}
+        color={`ton${colorMode}.white`}
+        _focus={{ boxShadow: 'none' }}
+        _hover={{ bgColor: `ton${colorMode}.accent` }}
+        _active={{ bgColor: 'none' }}
+        transition={'background 0.3s ease-in-out ,color 0.3s ease-in-out'}
+      >
+        {t('add liquidity')}
+      </Button>
     </Grid>
   );
 });

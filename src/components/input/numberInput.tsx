@@ -1,13 +1,6 @@
-import {
-  NumberInput as NumberInputChakra,
-  NumberInputField,
-  useNumberInput,
-} from '@chakra-ui/react';
-import { ChangeEvent, memo, useCallback, useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
+import { NumberInput as NumberInputChakra, NumberInputField } from '@chakra-ui/react';
+import { memo } from 'react';
 import { useStoreon } from 'storeon/react';
-import { simple_price } from '../../api/queries/queries';
-import { deepGet } from '../../utils/deepGet';
 
 interface NumberInputProps {
   id: 'input' | 'output';

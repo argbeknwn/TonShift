@@ -3,6 +3,8 @@ interface State {
   output: any | null;
   exchange: number;
   turnOver: boolean;
+  pools: [Coin, Coin][] | [];
+  pool: [Coin, Coin] | null;
   fav: Coin[] | [];
 }
 
@@ -11,6 +13,9 @@ interface Events {
   setAsset: { id: 'input' | 'output'; value: Coin };
   setExchange: number;
   turnOver: undefined;
+  addPool: undefined;
+  selectPool?: number;
+  removePool: number;
   addFav: Coin;
   removeFav: string;
 }

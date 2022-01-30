@@ -7,17 +7,13 @@ const swap: StoreonModule<State, Events> = store => {
     const divide = () => value.value / state.exchange;
 
     if (id === 'input') {
-      console.log({ input: multiply() });
-
       return {
-        ...state,
         input: value,
         output: { ...state.output, value: state.turnOver ? divide() : multiply() },
       };
     }
 
     return {
-      ...state,
       input: { ...state.input, value: state.turnOver ? multiply() : divide() },
       output: value,
     };
@@ -25,7 +21,6 @@ const swap: StoreonModule<State, Events> = store => {
   store.on('setExchange', (state, exchange) => ({ ...state, exchange }));
   store.on('turnOver', state => {
     return {
-      ...state,
       input: state.output,
       output: state.input,
       turnOver: !state.turnOver,

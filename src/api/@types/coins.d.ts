@@ -27,3 +27,9 @@ interface Coin {
   total_volume: number;
   value: number;
 }
+
+interface Exchange {
+  [key: string]: {
+    [key: string]: number | undefined;
+  };
+}

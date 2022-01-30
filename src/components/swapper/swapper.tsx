@@ -23,7 +23,7 @@ const Swapper = memo(() => {
   const { t } = useTranslation();
   const { colorMode } = useColorMode();
   const { dispatch, input, output, turnOver } = useStoreon('input', 'output', 'turnOver');
-  const { data, status, error, refetch } = useQuery('simple_price', () =>
+  const { data, refetch } = useQuery('simple_price', () =>
     simple_price({
       id: turnOver ? output.id : input.id,
       vs_currencies: turnOver ? input.symbol : output.symbol,

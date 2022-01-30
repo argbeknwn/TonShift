@@ -8,7 +8,7 @@ import { DEV } from '../constants/enviroment';
 const store = createStoreon([
   swap,
   pools,
-  persistState(['input', 'output', 'exchange', 'turnOver', 'fav']),
+  persistState(['input', 'output', 'exchange', 'turnOver', 'fav', 'pools']),
   DEV && storeonLogger,
 ]);
 

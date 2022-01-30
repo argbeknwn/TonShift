@@ -57,5 +57,8 @@
   "search": "search by symbol or name",
   "name": "name",
   "price_change_24h": "changes 24h",
-  "market_cap": "market_cap"
+  "market_cap": "market_cap",
+  "tokens": "tokens",
+  "total locked": "total locked",
+  "earnings": "earnings"
 }
