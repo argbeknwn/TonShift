@@ -161,8 +161,8 @@ const PoolDrawer = memo(() => {
                       color={`ton${colorMode}.text`}
                     />
                     <Text justifySelf={'start'}>{coin.symbol}</Text>
-                    <Text>{coin.value}</Text>
-                    <Text>{coin.market_cap}</Text>
+                    <Text>{`${coin.value}`}</Text>
+                    <Text>{`${coin.market_cap}`}</Text>
                   </Grid>
                 ))}
               </Grid>

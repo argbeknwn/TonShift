@@ -1,4 +1,4 @@
-import { useMemo, memo, useState } from 'react';
+import { useMemo, memo, useState, useEffect } from 'react';
 import { AreaClosed, Bar } from '@visx/shape';
 import { curveMonotoneX } from '@visx/curve';
 import { GridRows, GridColumns } from '@visx/grid';
@@ -37,23 +37,30 @@ const Graph = memo(({ margin = { top: 0, right: 0, bottom: 0, left: 0 } }: AreaP
   const { pool } = useStoreon('pool');
   const { t } = useTranslation();
   const { colorMode } = useColorMode();
-  const { data, refetch } = useQuery(
+
+  const [input, output] = pool || [];
+
+  const { data, isLoading, isError, refetch } = useQuery(
     'market_chart',
     () =>
       market_chart({
-        id: pool[0].id,
-        vs_currencies: pool[1].symbol,
+        id: input?.id || 'bitcoin',
+        vs_currencies: output?.symbol || 'eth',
       }),
     { enabled: pool?.length > 0 }
   );
 
+  useEffect(() => {
+    refetch();
+  }, [pool]);
+
   const [selected, setSelected] = useState(graphMenu[0]);
   const stock = useMemo(() => {
-    if (!data) return [];
+    if (!data || isLoading || isError) return [];
     if (!data[selected]) return [];
 
     return data[selected];
-  }, [data, selected]);
+  }, [data, isLoading, isError, selected]);
 
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
 
@@ -68,7 +75,7 @@ const Graph = memo(({ margin = { top: 0, right: 0, bottom: 0, left: 0 } }: AreaP
         range: [margin.left, innerWidth + margin.left],
         domain: extent(stock, getDate) as [Date, Date],
       }),
-    [innerWidth, margin.left]
+    [innerWidth, margin.left, stock]
   );
   const stockValueScale = useMemo(
     () =>
@@ -79,6 +86,13 @@ const Graph = memo(({ margin = { top: 0, right: 0, bottom: 0, left: 0 } }: AreaP
       }),
     [margin.top, innerHeight, stock]
   );
+
+  if (!stock.length)
+    return (
+      <Flex w={'full'} justifyContent={'space-between'} alignItems={'center'}>
+        Не поддерживается
+      </Flex>
+    );
 
   return (
     <>
@@ -129,8 +143,8 @@ const Graph = memo(({ margin = { top: 0, right: 0, bottom: 0, left: 0 } }: AreaP
           />
           <AreaClosed<GraphData>
             data={stock}
-            x={d => dateScale(getDate(d)) ?? 0}
-            y={d => stockValueScale(getStockValue(d)) ?? 0}
+            x={d => dateScale(getDate(d)) || 0}
+            y={d => stockValueScale(getStockValue(d)) || 0}
             yScale={stockValueScale}
             strokeWidth={1}
             stroke="url(#area-gradient)"
