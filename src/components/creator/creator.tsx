@@ -29,7 +29,7 @@ import {
   useDisclosure,
   useNumberInput,
 } from '@chakra-ui/react';
-import { memo, useCallback, useState } from 'react';
+import { memo, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useStoreon } from 'storeon/react';
 import { Icon } from '../icon/icon';
@@ -161,6 +161,8 @@ const CreatorPrice = memo(() => {
   const { colorMode } = useColorMode();
   const { input, output } = useStoreon('input', 'output');
 
+  if (!input || !output) return null;
+
   return (
     <Grid alignContent={'center'} gap={4}>
       <Flex justifyContent={'space-between'}>
@@ -192,7 +194,12 @@ const CreatorPrice = memo(() => {
   );
 });
 
-const Creator = memo(() => {
+interface CreatorProps {
+  empty?: boolean;
+  children?: ReactNode | undefined;
+}
+
+const Creator = memo<CreatorProps>(({ empty, children }) => {
   const { t } = useTranslation();
   const { colorMode } = useColorMode();
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
@@ -215,17 +222,34 @@ const Creator = memo(() => {
 
   return (
     <>
-      <Button
-        onClick={onOpen}
-        color={`ton${colorMode}.accent`}
-        textTransform={'capitalize'}
-        variant={'unstyled'}
-        _hover={{ boxShadow: 'none', color: `ton${colorMode}.accent` }}
-        _focus={{ boxShadow: 'none' }}
-        transition={'color 0.3s ease-in-out'}
+      <Flex
+        w={'50%'}
+        gap={8}
+        alignItems={'center'}
+        justifyContent={'center'}
+        flexDirection={'column'}
       >
-        {t('add liquidity')}
-      </Button>
+        {children}
+        <Button
+          rounded={20}
+          w={'full'}
+          bg={`ton${colorMode}.${empty ? 'buttons' : 'hidden'}`}
+          onClick={onOpen}
+          fontSize={{ sm: 'lg' }}
+          color={`ton${colorMode}.${empty ? 'white' : 'accent'}`}
+          textTransform={'capitalize'}
+          variant={'unstyled'}
+          _hover={{
+            boxShadow: 'none',
+            color: `ton${colorMode}.${empty ? 'white' : 'accent'}`,
+            bg: `ton${colorMode}.${empty ? 'accent' : 'hidden'}`,
+          }}
+          _focus={{ boxShadow: 'none' }}
+          transition={'color 0.3s ease-in-out bg 0.3s ease-in-out'}
+        >
+          {t('add liquidity')}
+        </Button>
+      </Flex>
       <Drawer placement={variant} size={size} onClose={handleClose} isOpen={isOpen}>
         <DrawerOverlay />
 

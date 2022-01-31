@@ -7,6 +7,7 @@ import {
   useBreakpointValue,
   AvatarGroup,
   Avatar,
+  Image,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +19,9 @@ import { Icon } from '../icon/icon';
 import { useStoreon } from 'storeon/react';
 import { poolMock } from '../../mocks/pools';
 import { PoolDrawer } from '../drawer/pool';
+import { Creator } from '../creator/creator';
+
+import img from '@/assets/images/union.svg';
 
 const PoolsList = memo(() => {
   const { t } = useTranslation();
@@ -29,6 +33,22 @@ const PoolsList = memo(() => {
   const handleClick = (pos: number) => {
     dispatch('selectPool', pos);
   };
+
+  if (pools.length < 1)
+    return (
+      <Flex
+        justifyContent={'center'}
+        alignItems={'center'}
+        h={'full'}
+        w={'full'}
+        gap={2}
+        px={{ base: 0, sm: 4 }}
+      >
+        <Creator empty={true}>
+          <Image boxSize={'full'} p={2} src={img} alt={'image'} color={`ton${colorMode}.text`} />
+        </Creator>
+      </Flex>
+    );
 
   return (
     <Grid
