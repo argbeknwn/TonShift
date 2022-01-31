@@ -45,6 +45,7 @@ const DropDown = memo<DropDownProps>(({ id }) => {
         variant="unstyled"
         _focus={{ boxShadow: 'none' }}
         _hover={{ bg: 'none' }}
+        _active={{ bg: 'none' }}
         textTransform={'uppercase'}
       >
         {data?.symbol}

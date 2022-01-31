@@ -26,7 +26,6 @@ const App = memo(() => {
           <Route path="swap" element={<SwapRoute />} />
           <Route path="pools" element={<PoolsRoute />}>
             <Route index element={<PoolsList />} />
-            <Route path="create" element={<Creator />} />
             <Route path="favorites" element={<Swapper />} />
             <Route path="*" element={<NoMatchRoute />} />
           </Route>
