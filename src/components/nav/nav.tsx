@@ -1,22 +1,15 @@
 import {
-  Menu,
-  MenuButton,
   IconButton,
   MenuList,
-  MenuItem,
   Grid,
-  Container,
-  useMediaQuery,
   Portal,
   Box,
   useBreakpointValue,
   useColorMode,
   Flex,
   Text,
-  MenuGroup,
-  MenuItemOption,
-  MenuOptionGroup,
   Button,
+  Modal,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -32,7 +25,7 @@ import { ConnectBtn } from '../buttons/connectBtn';
 const Nav = memo(() => {
   const { t, i18n } = useTranslation();
   const desktop = useBreakpointValue({ base: false, sm: true });
-  const { colorMode } = useColorMode();
+  const { setColorMode, colorMode } = useColorMode();
   const changeLanguage = (lng: 'ru' | 'en') => {
     i18n.changeLanguage(lng);
   };
@@ -89,50 +82,71 @@ const Nav = memo(() => {
         )}
         {!desktop && (
           <Settings>
-            <MenuList w={{ base: '100vw', sm: '300px' }}>
-              <MenuItem as={Grid} display={'grid'} gridTemplateColumns={`1fr 1fr`}>
-                <Text>{t('language')}</Text>
-                <Grid
-                  rounded={20}
-                  bgColor={`ton${colorMode}.empty`}
-                  gridTemplateColumns={`1fr 1fr`}
-                >
-                  <MenuItem
-                    as={Button}
+            <Flex
+              id="testtext"
+              flexDirection={'column'}
+              bg={`ton${colorMode}.box`}
+              p={4}
+              borderRadius={20}
+              gap={2}
+              boxShadow={`0 0 15px 0 var(--chakra-colors-ton${colorMode}-shadow)`}
+            >
+              <Text textTransform={'capitalize'} p={4}>
+                {t('settings')}
+              </Text>
+              <Grid
+                as={Grid}
+                display={'grid'}
+                gridTemplateColumns={`1fr 1fr`}
+                alignItems={'center'}
+                px={4}
+                py={1}
+              >
+                <Text textTransform={'capitalize'}>{t('mode')}</Text>
+                <Grid rounded={20} gridTemplateColumns={`1fr 1fr`}>
+                  <IconButton
+                    onClick={() => setColorMode('light')}
+                    icon={<Icon iconType={'light'} />}
+                    aria-label={t(`light theme`)}
+                    variant={'unstyled'}
+                  />
+                  <IconButton
+                    onClick={() => setColorMode('dark')}
+                    icon={<Icon iconType={'dark'} />}
+                    aria-label={t(`dark theme`)}
+                    variant={'unstyled'}
+                  />
+                </Grid>
+              </Grid>
+              <Grid
+                as={Grid}
+                display={'grid'}
+                gridTemplateColumns={`1fr 1fr`}
+                alignItems={'center'}
+                px={4}
+                py={1}
+              >
+                <Text textTransform={'capitalize'}>{t('language')}</Text>
+                <Grid rounded={20} gridTemplateColumns={`1fr 1fr`}>
+                  <Button
+                    textTransform={'uppercase'}
                     variant="unstyled"
                     onClick={() => changeLanguage('ru')}
                     value="ru"
                   >
                     {t('ru')}
-                  </MenuItem>
-                  <MenuItem
-                    as={Button}
+                  </Button>
+                  <Button
+                    textTransform={'uppercase'}
                     onClick={() => changeLanguage('en')}
                     value="en"
                     variant="unstyled"
                   >
                     {t('en')}
-                  </MenuItem>
+                  </Button>
                 </Grid>
-              </MenuItem>
-              {/* <MenuOptionGroup defaultValue={i18n.language} title="Language" type="radio">
-              <MenuItemOption as={Button} onClick={() => changeLanguage('ru')} value="ru">
-                {t('ru')}
-              </MenuItemOption>
-              <MenuItemOption as={Button} onClick={() => changeLanguage('en')} value="en">
-                {t('en')}
-              </MenuItemOption>
-            </MenuOptionGroup> */}
-              <NavLink to={'swap'}>
-                <MenuItem>{t('swap')}</MenuItem>
-              </NavLink>
-              <NavLink to={'pools'}>
-                <MenuItem command="⌘N">{t('pools')}</MenuItem>
-              </NavLink>
-              <NavLink to={'pool'}>
-                <MenuItem command="⌘⇧N">{t('pool')}</MenuItem>
-              </NavLink>
-            </MenuList>
+              </Grid>
+            </Flex>
           </Settings>
         )}
       </Flex>
